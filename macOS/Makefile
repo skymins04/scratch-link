@@ -79,7 +79,7 @@ dist/tmp.devid/app/$(APP_BUNDLE): dist/$(APP_BUNDLE)
 # once Perfect-Crypto builds in debug without it
 $(BIN_FILE): $(SWIFT_SOURCES)
 	@echo "Build Version: $(APP_VERSION) $(VERSION_DETAIL)"
-	swift build --configuration $(CONFIG) --no-static-swift-stdlib -Xlinker -rpath -Xlinker '@executable_path/../Frameworks' -Xswiftc -Xfrontend -Xswiftc -validate-tbd-against-ir=none
+	swift build --configuration $(CONFIG) --arch arm64 --arch x86_64 --no-static-swift-stdlib -Xlinker -rpath -Xlinker '@executable_path/../Frameworks' -Xswiftc -Xfrontend -Xswiftc -validate-tbd-against-ir=none
 
 xcodeproj:
 	swift package generate-xcodeproj
